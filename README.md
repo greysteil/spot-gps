@@ -66,11 +66,16 @@ api.messages.list(page: 2)
 
 ### Filtering
 
-The SPOT API supports filtering by date.
+The SPOT API only supports filtering by date. You can do so using either the
+`#list` or `#all` methods.
 
 ```ruby
+api.messages.all(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00')
 api.messages.list(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00')
 ```
+
+You can pass the `start_at` and `end_at` as a `String`, `Time`, `DateTime` or
+`Date`, and the gem will handle formatting it correctly for SPOT.
 
 ### Error Handling
 
