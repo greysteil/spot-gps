@@ -15,7 +15,7 @@ gem 'spot-gps'
 
 ## Configuration
 
-There are 3 configuration options:
+Timeout options can be configured globally:
 
 ```ruby
 SPOT.configure do |config|
@@ -26,7 +26,7 @@ end
 
 ## Usage
 
-API calls are made using an instance of the `API` class:
+API calls are made using an instance of the `SPOT::Client` class:
 
 ```ruby
 api = SPOT::Client.new(feed_id: 'FEED_GIID', feed_password: 'OPTIONAL_PASSWORD')
