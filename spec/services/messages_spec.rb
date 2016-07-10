@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SPOT::Services::Messages do
-  let(:messages) { SPOT::API.new(feed_id: 'EXAMPLE_ID').messages }
+  let(:messages) { SPOT::Client.new(feed_id: 'EXAMPLE_ID').messages }
 
   describe "#all" do
     subject(:all) { messages.all(args) }

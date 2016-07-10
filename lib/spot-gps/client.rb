@@ -1,5 +1,5 @@
 module SPOT
-  class API
+  class Client
     attr_reader :feed_id, :feed_password
 
     def initialize(feed_id: nil, feed_password: nil)

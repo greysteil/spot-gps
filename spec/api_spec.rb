@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SPOT::API do
+describe SPOT::Client do
   subject(:api) { described_class.new(options) }
   let(:options) { { feed_id: feed_id, feed_password: password } }
   let(:feed_id) { "EXAMPLE_ID" }

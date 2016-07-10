@@ -30,7 +30,7 @@ end
 API calls are made using an instance of the `API` class:
 
 ```ruby
-api = SPOT::API.new(feed_id: 'FEED_GIID', feed_password: 'OPTIONAL_PASSWORD')
+api = SPOT::Client.new(feed_id: 'FEED_GIID', feed_password: 'OPTIONAL_PASSWORD')
 ```
 
 ### Resources
