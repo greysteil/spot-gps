@@ -41,15 +41,24 @@ Currently, the SPOT API only supports a single `messages` resource.
 Messages are communications sent from a SPOT device.
 
 ```ruby
-api.messages.list    # => Returns a (paginated) list of messages for a feed
+api.messages.all     # => Returns a lazily paginated list of messages for a feed
+api.messages.list    # => Returns a list of messages for a given page of a feed
 api.messages.latest  # => Returns the most recent message for a feed
 ```
 
 ### Pagination
 
-All resources that support a `list` method support pagination. By default, the
-first page of 50 records are fetched. To fetch subsequent pages (each of 50
-records), specify a `page`.
+If you want to get all of the records for a given resource type, you can use the
+`#all` method to get a lazily paginated list. `#all` will deal with making extra
+API requests to paginate through all the data for you:
+
+```ruby
+api.messages.all.each { |message| puts message.created_at }
+```
+
+Alternatively, you can use the `#list` method to get a specific page of entries.
+By default, the first page of 50 records are fetched. To fetch subsequent pages
+(each of 50 records), specify a `page`.
 
 ```ruby
 api.messages.list(page: 2)

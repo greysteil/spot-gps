@@ -3,6 +3,55 @@ require 'spec_helper'
 describe SPOT::Services::Messages do
   let(:messages) { SPOT::Client.new(feed_id: 'EXAMPLE_ID').messages }
 
+  describe "#all" do
+    subject(:all) { messages.all(args) }
+    let(:args) { {} }
+
+    it { is_expected.to be_a(Enumerator) }
+
+    context "with records" do
+      before do
+        stub_url = SPOT.endpoint + 'EXAMPLE_ID/message.json'
+        stub_request(:get, stub_url).to_return(
+          body: load_fixture('message.json'),
+          headers: { 'Content-Type' => 'application/json' }
+        )
+
+        stub_request(:get, stub_url + "?start=50").to_return(
+          body: load_fixture('message.json'),
+          headers: { 'Content-Type' => 'application/json' }
+        )
+
+        stub_request(:get, stub_url + "?start=100").to_return(
+          body: load_fixture('no_messages.json'),
+          headers: { 'Content-Type' => 'application/json' }
+        )
+      end
+
+      its(:first) { is_expected.to be_a(SPOT::Resources::Message) }
+      its("to_a.length") { is_expected.to eq(4) }
+
+      it "makes the correct number of requests" do
+        all.map(&:created_at).to_a
+        expect(a_request(:get, /#{Regexp.quote(SPOT.endpoint)}/)).
+          to have_been_made.times(3)
+      end
+    end
+
+    context "with no records" do
+      before do
+        stub_url = SPOT.endpoint + 'EXAMPLE_ID/message.json'
+        stub_request(:get, stub_url).to_return(
+          body: load_fixture('no_messages.json'),
+          headers: { 'Content-Type' => 'application/json' }
+        )
+      end
+
+      its(:first) { is_expected.to eq(nil) }
+      its("to_a.length") { is_expected.to eq(0) }
+    end
+  end
+
   describe "#list" do
     subject(:list) { messages.list(args) }
 
@@ -13,7 +62,6 @@ describe SPOT::Services::Messages do
         headers: { 'Content-Type' => 'application/json' }
       )
     end
-
 
     context "without any arguments" do
       let(:args) { {} }

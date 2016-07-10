@@ -1,6 +1,7 @@
-## v0.0.3, Unreleased
+## v0.1.0, 10 July 2016
 
-- Rename `all` method to `list`
+- Move old `all` functionality to `list`
+- Introduce new `all` method, that lazily paginates through all resources
 
 ## v0.0.2, 10 July 2016
 
