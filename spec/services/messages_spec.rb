@@ -76,6 +76,7 @@ describe SPOT::Services::Messages do
       end
 
       it { is_expected.to be_a(SPOT::ListResponse) }
+      its(:response) { is_expected.to be_a(SPOT::ApiResponse) }
       its("records.first") { is_expected.to be_a(SPOT::Resources::Message) }
 
       context "when there are no displayable messages" do
@@ -196,6 +197,7 @@ describe SPOT::Services::Messages do
   end
 
   describe "#latest" do
+    subject { messages.latest }
     before do
       stub_url = SPOT.endpoint + 'EXAMPLE_ID/latest.json'
       stub_request(:get, stub_url).to_return(
@@ -213,8 +215,7 @@ describe SPOT::Services::Messages do
       messages.latest
     end
 
-    it 'wraps the response in a resource' do
-      expect(messages.latest).to be_a(SPOT::Resources::Message)
-    end
+    it { is_expected.to be_a(SPOT::Resources::Message) }
+    its(:response) { is_expected.to be_a(SPOT::ApiResponse) }
   end
 end

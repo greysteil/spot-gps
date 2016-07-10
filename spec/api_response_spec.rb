@@ -15,6 +15,7 @@ describe SPOT::ApiResponse do
   end
 
   its(:status) { is_expected.to eq(200) }
+  its(:headers) { is_expected.to be_a(Hash) }
 
   describe "#body" do
     context "when the response is JSON" do

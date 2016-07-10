@@ -46,6 +46,25 @@ api.messages.list    # => Returns a list of messages for a given page of a feed
 api.messages.latest  # => Returns the most recent message for a feed
 ```
 
+Each message has the following details available:
+
+```ruby
+message = api.messages.latest
+
+message.id                    # => Integer. ID of the SPOT message
+message.created_at            # => Time
+message.type                  # => String. Message type (e.g., "OK", or "HELP")
+message.latitude              # => Float
+message.longitude             # => Float
+message.battery_state         # => String. Battery state at time of sending (e.g., "GOOD")
+message.hidden                # => Boolean. I'm not sure what this is for...
+message.show_custom_message   # => Boolean. I'm not sure what this is for...
+message.content               # => String
+message.messenger_id          # => String. As used when registering your SPOT
+message.messenger_name        # => String. As specified when registering your SPOT
+message.messenger_model       # => String. E.g., "SPOT3"
+```
+
 ### Pagination
 
 If you want to get all of the records for a given resource type, you can use the
@@ -81,6 +100,20 @@ You can pass the `start_at` and `end_at` as a `String`, `Time`, `DateTime` or
 
 TODO: Currently the gem will just raise Faraday errors if anything goes wrong
 with a request.
+
+### Raw response
+
+If you'd like to query the un-wrapped response data from SPOT, you can use the
+`#response` method to do so.
+
+```ruby
+message = api.messages.latest
+response = message.response
+
+response.body         # => Hash. JSON body
+response.headers      # => Hash. Headers returned by SPOT
+response.status       # => Integer. Status code returned by SPOT
+```
 
 ## Contributing
 

@@ -22,7 +22,7 @@ describe SPOT::Resources::Message do
     end
 
     it 'can be initialized from an unenveloped response' do
-      resource = described_class.new(data)
+      resource = described_class.new(data, nil)
 
       expect(resource.id).to eq(585079373)
       expect(resource.created_at).to eq(Time.at(1468164566))
@@ -40,13 +40,17 @@ describe SPOT::Resources::Message do
 
     it 'can handle new attributes without erroring' do
       data['foo'] = 'bar'
-      expect { described_class.new(data) }.to_not raise_error
+      expect { described_class.new(data, nil) }.to_not raise_error
     end
 
     describe '#to_h' do
-      it 'returns a hash representing the resource' do
-        expect(described_class.new(data).to_h).to eq(data)
-      end
+      subject { described_class.new(data, nil).to_h }
+      it { is_expected.to eq(data) }
+    end
+
+    describe '#response' do
+      subject { described_class.new(data, "response").response }
+      it { is_expected.to eq("response") }
     end
   end
 end

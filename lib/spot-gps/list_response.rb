@@ -16,5 +16,9 @@ module SPOT
         @resource_class.new(item)
       end
     end
+
+    def response
+      @response
+    end
   end
 end
