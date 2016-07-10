@@ -1,0 +1,36 @@
+{
+    "response": {
+        "feedMessageResponse": {
+            "count": 1,
+            "feed": {
+                "id": "FEED_ID",
+                "name": "Testing",
+                "description": "Testing",
+                "status": "ACTIVE",
+                "usage": 0,
+                "daysRange": 7,
+                "detailedMessageShown": true
+            },
+            "totalCount": 1,
+            "activityCount": 0,
+            "messages": {
+                "message": {
+                    "@clientUnixTime": "0",
+                    "id": 585079373,
+                    "messengerId": "0-1234567",
+                    "messengerName": "My SPOT",
+                    "unixTime": 1468164566,
+                    "messageType": "OK",
+                    "latitude": 61.54875,
+                    "longitude": -3.0697,
+                    "modelId": "SPOT3",
+                    "showCustomMsg": "Y",
+                    "dateTime": "2016-07-10T15:29:26+0000",
+                    "batteryState": "GOOD",
+                    "hidden": 0,
+                    "messageContent": "This is the default SPOT Check In/OK message. Please update."
+                }
+            }
+        }
+    }
+}

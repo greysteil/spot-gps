@@ -1,0 +1,54 @@
+{
+    "response": {
+        "feedMessageResponse": {
+            "count": 2,
+            "feed": {
+                "id": "1HXUWlonx0AInTM7LAnBoAFEBQ9GWLJ5e",
+                "name": "Testing",
+                "description": "Testing",
+                "status": "ACTIVE",
+                "usage": 0,
+                "daysRange": 7,
+                "detailedMessageShown": true
+            },
+            "totalCount": 2,
+            "activityCount": 0,
+            "messages": {
+                "message": [
+                    {
+                        "@clientUnixTime": "0",
+                        "id": 585079373,
+                        "messengerId": "0-2855693",
+                        "messengerName": "Grey's SPOT",
+                        "unixTime": 1468164566,
+                        "messageType": "OK",
+                        "latitude": 51.54875,
+                        "longitude": -0.0697,
+                        "modelId": "SPOT3",
+                        "showCustomMsg": "Y",
+                        "dateTime": "2016-07-10T15:29:26+0000",
+                        "batteryState": "GOOD",
+                        "hidden": 0,
+                        "messageContent": "This is the default SPOT Check In/OK message. Please update."
+                    },
+                    {
+                        "@clientUnixTime": "0",
+                        "id": 584982167,
+                        "messengerId": "0-2855693",
+                        "messengerName": "Grey's SPOT",
+                        "unixTime": 1468149143,
+                        "messageType": "OK",
+                        "latitude": 51.5489,
+                        "longitude": -0.06988,
+                        "modelId": "SPOT3",
+                        "showCustomMsg": "Y",
+                        "dateTime": "2016-07-10T11:12:23+0000",
+                        "batteryState": "GOOD",
+                        "hidden": 0,
+                        "messageContent": "This is the default SPOT Check In/OK message. Please update."
+                    }
+                ]
+            }
+        }
+    }
+}

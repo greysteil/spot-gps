@@ -7,11 +7,24 @@ module SPOT
         query_params[:startDate] = spot_formatted_time(start_at) if start_at
         query_params[:endDate] = spot_formatted_time(end_at) if end_at
 
-        get(path: "message.json", params: query_params)
+        response = get(path: "message.json", params: query_params)
+        json_body = JSON.parse(response.body.to_s)
+
+        SPOT::ListResponse.new(
+          response: response,
+          resource_class: SPOT::Resources::Message,
+          unenveloped_body: unenvelope_body(json_body)
+        )
       end
 
       def latest
-        get(path: "latest.json")
+        response = get(path: "latest.json")
+        json_body = JSON.parse(response.body.to_s)
+        Resources::Message.new(unenvelope_body(json_body), response)
+      end
+
+      def unenvelope_body(body)
+        body.dig("response", "feedMessageResponse", "messages", "message")
       end
 
       private

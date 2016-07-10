@@ -24,9 +24,7 @@ module SPOT
         timeout: SPOT.read_timeout
       }
 
-      response = RestClient::Request.execute(request_options)
-
-      JSON.parse(response.body.to_s)
+      RestClient::Request.execute(request_options)
     end
 
     private
