@@ -41,8 +41,8 @@ Currently, the SPOT API only supports a single `messages` resource.
 Messages are communications sent from a SPOT device.
 
 ```ruby
-api.applicant.all     # => Returns a (paginated) list of all messages for a feed
-api.applicant.latest  # => Returns the most recent message for a feed
+api.messages.all     # => Returns a (paginated) list of all messages for a feed
+api.messages.latest  # => Returns the most recent message for a feed
 ```
 
 ### Pagination
@@ -52,7 +52,7 @@ the first page of 50 records are fetched. To fetch subsequent pages (each of 50
 records), specify a `page`.
 
 ```ruby
-api.message.all(page: 2)
+api.messages.all(page: 2)
 ```
 
 ### Filtering
@@ -60,7 +60,7 @@ api.message.all(page: 2)
 The SPOT API supports filtering by date.
 
 ```ruby
-api.message.all(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00')
+api.messages.all(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00')
 ```
 
 ### Error Handling
