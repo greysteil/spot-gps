@@ -2,6 +2,10 @@ module SPOT
   class ApiResponse
     extend Forwardable
 
+    def_delegator :@response, :headers
+    def_delegator :@response, :status
+    def_delegator :@response, :status_code
+
     def initialize(response)
       @response = response
     end
@@ -29,7 +33,9 @@ module SPOT
 
     def handle_raw
       non_json_msg = "Received non-JSON response:\n\n" \
-                     "#{@response.body}"
+        "status: #{@response.status}\n" \
+        "headers: #{@response.headers}\n" \
+        "body: #{@response.body}"
 
       raise non_json_msg
     end

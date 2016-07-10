@@ -19,7 +19,6 @@ There are 3 configuration options:
 
 ```ruby
 SPOT.configure do |config|
-  config.logger = Logger.new(STDOUT)
   config.open_timeout = 30
   config.read_timeout = 80
 end
@@ -66,7 +65,7 @@ api.messages.all(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00')
 
 ### Error Handling
 
-TODO: Currently the gem will just raise RestClient errors if anything goes wrong
+TODO: Currently the gem will just raise Faraday errors if anything goes wrong
 with a request.
 
 ## Contributing

@@ -1,9 +1,8 @@
 require 'json'
-require 'rest-client'
+require 'faraday'
 
 require 'spot-gps/version'
 require 'spot-gps/configuration'
-require 'spot-gps/null_logger'
 require 'spot-gps/client'
 require 'spot-gps/api_response'
 require 'spot-gps/api_service'

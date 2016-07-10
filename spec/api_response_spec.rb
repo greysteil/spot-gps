@@ -10,12 +10,11 @@ describe SPOT::ApiResponse do
       headers: { 'Content-Type' => 'application/json' }
     )
 
-    RestClient::Request.execute(
-      url: stub_url,
-      method: :get,
-      headers: { 'Content-Type' => 'application/json' }
-    )
+    SPOT::ApiService.new(feed_id: 'EXAMPLE_ID').
+      send(:make_request, :get, stub_url)
   end
+
+  its(:status) { is_expected.to eq(200) }
 
   describe "#body" do
     context "when the response is JSON" do
@@ -32,11 +31,8 @@ describe SPOT::ApiResponse do
           headers: { 'Content-Type' => 'application/xml' }
         )
 
-        RestClient::Request.execute(
-          url: stub_url,
-          method: :get,
-          headers: { 'Content-Type' => 'application/xml' }
-        )
+        SPOT::ApiService.new(feed_id: 'EXAMPLE_ID').
+          send(:make_request, :get, stub_url)
       end
 
       it 'raises an error' do

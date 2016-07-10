@@ -6,6 +6,15 @@ module SPOT
     def initialize(feed_id:, feed_password: nil)
       @feed_id = feed_id
       @feed_password = feed_password
+
+      connection_options = {
+        request: {
+          timeout: SPOT.read_timeout,
+          open_timeout: SPOT.open_timeout
+        }
+      }
+
+      @connection = Faraday.new(base_uri, connection_options)
     end
 
     # Make a GET request to the SPOT API
@@ -13,18 +22,7 @@ module SPOT
       params ||= {}
       params = params.merge(feedPassword: feed_password) if feed_password
 
-      uri = URI.join(base_uri, path)
-      uri.query = URI.encode_www_form(params) if params.any?
-
-      request_options = {
-        url: uri.to_s,
-        method: :get,
-        headers: headers,
-        open_timeout: SPOT.open_timeout,
-        timeout: SPOT.read_timeout
-      }
-
-      response = RestClient::Request.execute(request_options)
+      response = make_request(:get, path, params)
 
       SPOT::ApiResponse.new(response)
     end
@@ -32,6 +30,15 @@ module SPOT
     private
 
     attr_reader :feed_id, :feed_password
+
+    def make_request(method, path, params = {})
+      @connection.send(method.to_sym) do |request|
+        request.url path
+        request.body = @request_body
+        request.params = params
+        request.headers = headers
+      end
+    end
 
     def base_uri
       URI.join(SPOT.endpoint, feed_id + '/')
