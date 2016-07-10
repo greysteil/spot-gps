@@ -3,6 +3,7 @@
 A thin wrapper for SPOT's [API](http://www.findmespot.com/en/index.php?cid=1700).
 
 [![Gem Version](https://badge.fury.io/rb/spot-gps.svg)](http://badge.fury.io/rb/spot-gps)
+[![Build Status](https://travis-ci.org/greysteil/spot-gps.svg?branch=master)](https://travis-ci.org/greysteil/spot-gps)
 
 ## Installation
 
