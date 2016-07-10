@@ -66,7 +66,8 @@ api.messages.all(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00')
 
 ### Error Handling
 
-TODO: Currently the gem will just raise RestClient errors.
+TODO: Currently the gem will just raise RestClient errors if anything goes wrong
+with a request.
 
 ## Contributing
 
