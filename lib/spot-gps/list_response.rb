@@ -10,6 +10,7 @@ module SPOT
       # SPOT returns a Hash, rather than an array of hashes, if there is only
       # a single record.
       @unenveloped_body = [@unenveloped_body] if @unenveloped_body.is_a?(Hash)
+      @unenveloped_body = [] if @unenveloped_body.nil?
 
       @records = @unenveloped_body.map do |item|
         @resource_class.new(item)

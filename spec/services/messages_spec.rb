@@ -29,6 +29,19 @@ describe SPOT::Services::Messages do
 
       it { is_expected.to be_a(SPOT::ListResponse) }
       its("records.first") { is_expected.to be_a(SPOT::Resources::Message) }
+
+      context "when there are no displayable messages" do
+        before do
+          stub_url = SPOT.endpoint + 'EXAMPLE_ID/message.json'
+          stub_request(:get, /#{Regexp.escape(stub_url)}.*/).to_return(
+            body: load_fixture('no_messages.json'),
+            headers: { 'Content-Type' => 'application/json' }
+          )
+        end
+
+        it { is_expected.to be_a(SPOT::ListResponse) }
+        its(:records) { is_expected.to eq([]) }
+      end
     end
 
     context "with a page parameter" do
