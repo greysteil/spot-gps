@@ -65,6 +65,8 @@ message.messenger_name        # => String. As specified when registering your SP
 message.messenger_model       # => String. E.g., "SPOT3"
 ```
 
+You can also call `#to_h` on a message to get its attributes as a hash.
+
 ### Pagination
 
 If you want to get all of the records for a given resource type, you can use the
