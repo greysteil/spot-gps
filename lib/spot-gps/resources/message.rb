@@ -14,9 +14,9 @@ module SPOT
       attr_reader :messenger_name
       attr_reader :messenger_model
 
-      def initialize(object, response = nil)
-        @object = object
+      attr_reader :response
 
+      def initialize(object, response = nil)
         @id = object.fetch('id')
         @created_at = Time.at(object.fetch('unixTime'))
         @type = object.fetch('messageType')
@@ -34,12 +34,22 @@ module SPOT
         @response = response
       end
 
-      def response
-        @response
+      def to_h
+        @hash ||=
+          begin
+            attribute_ivars = (instance_variables - [:@response, :@hash])
+
+            attribute_ivars.each_with_object({}) do |ivar, hash|
+              hash[ivar.to_s.delete('@').to_sym] = instance_variable_get(ivar)
+            end
+          end
       end
 
-      def to_h
-        @object
+      def inspect
+        attr_list =
+          to_h.map { |key, value| "#{key}: #{value.inspect}" }.join(', ')
+
+        "#<#{self.class} #{attr_list}>"
       end
     end
   end

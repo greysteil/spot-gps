@@ -45,7 +45,24 @@ describe SPOT::Resources::Message do
 
     describe '#to_h' do
       subject { described_class.new(data, nil).to_h }
-      it { is_expected.to eq(data) }
+      let(:expected_hash) do
+        {
+          id: 585079373,
+          created_at: Time.at(1468164566),
+          type: 'OK',
+          latitude: 61.54875,
+          longitude: -3.0697,
+          battery_state: 'GOOD',
+          hidden: false,
+          show_custom_message: true,
+          content: 'Example SPOT message.',
+          messenger_id: '0-1234567',
+          messenger_name: 'My SPOT',
+          messenger_model: 'SPOT3'
+        }
+      end
+
+      it { is_expected.to eq(expected_hash) }
     end
 
     describe '#response' do
