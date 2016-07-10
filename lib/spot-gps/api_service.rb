@@ -24,7 +24,9 @@ module SPOT
         timeout: SPOT.read_timeout
       }
 
-      RestClient::Request.execute(request_options)
+      response = RestClient::Request.execute(request_options)
+
+      SPOT::ApiResponse.new(response)
     end
 
     private

@@ -34,6 +34,10 @@ module SPOT
         @response = response
       end
 
+      def response
+        @response
+      end
+
       def to_h
         @object
       end
