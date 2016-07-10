@@ -96,11 +96,6 @@ api.messages.list(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00'
 You can pass the `start_at` and `end_at` as a `String`, `Time`, `DateTime` or
 `Date`, and the gem will handle formatting it correctly for SPOT.
 
-### Error Handling
-
-TODO: Currently the gem will just raise Faraday errors if anything goes wrong
-with a request.
-
 ### Raw response
 
 If you'd like to query the un-wrapped response data from SPOT, you can use the
@@ -114,6 +109,12 @@ response.body         # => Hash. JSON body
 response.headers      # => Hash. Headers returned by SPOT
 response.status       # => Integer. Status code returned by SPOT
 ```
+
+### Error Handling
+
+TODO: Currently the gem will just raise Faraday errors if anything goes wrong
+with a request.
+
 
 ## Contributing
 
