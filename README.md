@@ -15,7 +15,8 @@ gem 'spot-gps'
 
 ## Configuration
 
-Timeout options can be configured globally:
+Timeout options can be configured globally, or you can rely on the default
+values below:
 
 ```ruby
 SPOT.configure do |config|
@@ -34,7 +35,7 @@ api = SPOT::Client.new(feed_id: 'FEED_GIID', feed_password: 'OPTIONAL_PASSWORD')
 
 ### Resources
 
-Currently, the SPOT API only supports a single `messages` resource.
+Currently, the SPOT API only supports the `messages` resource.
 
 #### Messages
 
@@ -95,10 +96,10 @@ api.messages.all(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00')
 api.messages.list(start_at: '2014-06-01T00:00:00', end_at: '2015-06-01T00:00:00')
 ```
 
-You can pass the `start_at` and `end_at` as a `String`, `Time`, `DateTime` or
-`Date`, and the gem will handle formatting it correctly for SPOT.
+You can pass the `start_at` and `end_at` parameters as a `String`, `Time`,
+`DateTime` or `Date`, and the gem will handle formatting it correctly for SPOT.
 
-### Raw response
+### Raw responses
 
 If you'd like to query the un-wrapped response data from SPOT, you can use the
 `#response` method to do so.
