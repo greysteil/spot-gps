@@ -26,7 +26,7 @@ end
 
 ## Usage
 
-You can make API calls by using an instance of the `API` class:
+API calls are made using an instance of the `API` class:
 
 ```ruby
 api = SPOT::API.new(feed_id: 'FEED_GIID', feed_password: 'OPTIONAL_PASSWORD')
