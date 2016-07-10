@@ -17,7 +17,6 @@ module SPOT
       private
 
       def spot_formatted_time(time)
-        return nil unless time
         time = Time.parse(time) if time.is_a?(String)
         time = time.to_time if time.is_a?(Date) || time.is_a?(DateTime)
 
@@ -25,9 +24,8 @@ module SPOT
       end
 
       def start(page)
-        return nil unless page
         raise ArgumentError, "page must be an integer" unless page.is_a?(Integer)
-        raise ArgumentError, "page must be non-negative" if page < 0
+        raise ArgumentError, "page must be positive" unless page > 0
 
         # SPOT start param is zero-indexed
         (page - 1) * 50

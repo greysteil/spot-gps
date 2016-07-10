@@ -10,6 +10,7 @@ module SPOT
 
     # Make a GET request to the SPOT API
     def get(path:, params: {})
+      params ||= {}
       params = params.merge(feedPassword: feed_password) if feed_password
 
       uri = URI.join(base_uri, path)

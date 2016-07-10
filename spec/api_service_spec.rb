@@ -12,7 +12,6 @@ describe SPOT::ApiService do
       to_return(body: '{}', status: 200)
   end
 
-
   describe 'making a get request without any parameters' do
     it 'is expected to make a GET request to the correct URL' do
       service.get(path: 'messages.json')
