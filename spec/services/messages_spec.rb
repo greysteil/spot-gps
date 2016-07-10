@@ -3,8 +3,8 @@ require 'spec_helper'
 describe SPOT::Services::Messages do
   let(:messages) { SPOT::Client.new(feed_id: 'EXAMPLE_ID').messages }
 
-  describe "#all" do
-    subject(:all) { messages.all(args) }
+  describe "#list" do
+    subject(:list) { messages.list(args) }
 
     before do
       stub_url = SPOT.endpoint + 'EXAMPLE_ID/message.json'
@@ -24,7 +24,7 @@ describe SPOT::Services::Messages do
           with(path: 'message.json', params: {}).
           and_call_original
 
-        messages.all
+        messages.list
       end
 
       it { is_expected.to be_a(SPOT::ListResponse) }
@@ -47,12 +47,12 @@ describe SPOT::Services::Messages do
     context "with a page parameter" do
       context "that is invalid" do
         let(:args) { { page: "invalid" } }
-        specify { expect { all }.to raise_error(ArgumentError) }
+        specify { expect { list }.to raise_error(ArgumentError) }
       end
 
       context "that is zero" do
         let(:args) { { page: 0 } }
-        specify { expect { all }.to raise_error(ArgumentError) }
+        specify { expect { list }.to raise_error(ArgumentError) }
       end
 
       context "that is greater than zero" do
@@ -64,7 +64,7 @@ describe SPOT::Services::Messages do
             with(path: 'message.json', params: { start: 0 }).
             and_call_original
 
-          all
+          list
         end
 
         context "and greater than 1" do
@@ -76,7 +76,7 @@ describe SPOT::Services::Messages do
               with(path: 'message.json', params: { start: 50 }).
               and_call_original
 
-            all
+            list
           end
         end
       end
@@ -85,7 +85,7 @@ describe SPOT::Services::Messages do
     context "with a start_at or end_at parameter" do
       context "that is invalid" do
         let(:args) { { start_at: "invalid" } }
-        specify { expect { all }.to raise_error(ArgumentError) }
+        specify { expect { list }.to raise_error(ArgumentError) }
       end
 
       context "that is a valid string" do
@@ -99,7 +99,7 @@ describe SPOT::Services::Messages do
                            endDate: '2016-02-01T00:00:00-0000' }).
             and_call_original
 
-          all
+          list
         end
       end
 
@@ -113,7 +113,7 @@ describe SPOT::Services::Messages do
                  params: { startDate: '2016-01-01T00:00:00-0000' }).
             and_call_original
 
-          all
+          list
         end
       end
 
@@ -127,7 +127,7 @@ describe SPOT::Services::Messages do
                  params: { startDate: '2016-01-01T00:00:00-0000' }).
             and_call_original
 
-          all
+          list
         end
       end
 
@@ -141,7 +141,7 @@ describe SPOT::Services::Messages do
                  params: { startDate: '2016-01-01T00:00:00-0000' }).
             and_call_original
 
-          all
+          list
         end
       end
     end

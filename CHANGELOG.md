@@ -1,3 +1,7 @@
+## v0.0.3, Unreleased
+
+- Rename `all` method to `list`
+
 ## v0.0.2, 10 July 2016
 
 - Wrap responses in SPOT::Resources::Message objects, making them easier to work

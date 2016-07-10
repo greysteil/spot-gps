@@ -1,7 +1,7 @@
 module SPOT
   module Services
     class Messages < Base
-      def all(page: nil, start_at: nil, end_at: nil)
+      def list(page: nil, start_at: nil, end_at: nil)
         query_params = {}
         query_params[:start] = start(page) if page
         query_params[:startDate] = spot_formatted_time(start_at) if start_at
@@ -21,11 +21,11 @@ module SPOT
         Resources::Message.new(unenvelope_body(response.body), response)
       end
 
-      private
-
       def unenvelope_body(body)
         body.dig("response", "feedMessageResponse", "messages", "message")
       end
+
+      private
 
       def spot_formatted_time(time)
         time = Time.parse(time) if time.is_a?(String)
