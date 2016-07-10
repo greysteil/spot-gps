@@ -1,6 +1,6 @@
 # SPOT GPS
 
-A thin wrapper for SPOT's [API](http://www.findmespot.com/en/index.php?cid=1700).
+A thin wrapper for SPOT's [API](http://faq.findmespot.com/index.php?action=showEntry&data=69).
 
 [![Gem Version](https://badge.fury.io/rb/spot-gps.svg)](http://badge.fury.io/rb/spot-gps)
 [![Build Status](https://travis-ci.org/greysteil/spot-gps.svg?branch=master)](https://travis-ci.org/greysteil/spot-gps)
