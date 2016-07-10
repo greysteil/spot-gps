@@ -18,13 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.7'
-  spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'webmock', '~> 1.22'
-  spec.add_development_dependency 'rubocop', '~> 0.37.0'
-  spec.add_development_dependency 'rspec', '~> 3.1'
-  spec.add_development_dependency 'rspec-its', '~> 1.2'
-  spec.add_development_dependency 'sinatra', '~> 1.4'
+  spec.add_development_dependency 'rspec', '~> 3.5'
+  spec.add_development_dependency 'rspec-its'
 
   spec.add_dependency 'rest-client', '~> 1.8.0'
 end
