@@ -21,11 +21,11 @@ module SPOT
         Resources::Message.new(unenvelope_body(response.body), response)
       end
 
+      private
+
       def unenvelope_body(body)
         body.dig("response", "feedMessageResponse", "messages", "message")
       end
-
-      private
 
       def spot_formatted_time(time)
         time = Time.parse(time) if time.is_a?(String)
