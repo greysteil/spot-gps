@@ -23,26 +23,31 @@ module SPOT
         @latitude = object.fetch('latitude')
         @longitude = object.fetch('longitude')
         @battery_state = object.fetch('batteryState')
+        @hidden = object.fetch('hidden') == 1
+        @show_custom_message = object.fetch('showCustomMsg') == "Y"
+        @content = object.fetch('messageContent')
+        @messenger_id = object.fetch('messengerId')
+        @messenger_name = object.fetch('messengerName')
+        @messenger_model = object.fetch('modelId')
 
-        @hidden = object['hidden'] == 1
-        @show_custom_message = object['showCustomMsg'] == "Y"
-        @content = object['messageContent']
-        @messenger_id = object['messengerId']
-        @messenger_name = object['messengerName']
-        @messenger_model = object['modelId']
-
+        @object = object
         @response = response
       end
 
       def to_h
         @hash ||=
           begin
-            attribute_ivars = (instance_variables - [:@response, :@hash])
+            attribute_ivars =
+              (instance_variables - [:@response, :@object, :@hash])
 
             attribute_ivars.each_with_object({}) do |ivar, hash|
               hash[ivar.to_s.delete('@').to_sym] = instance_variable_get(ivar)
             end
           end
+      end
+
+      def to_raw_h
+        @object
       end
 
       def inspect

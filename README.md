@@ -66,7 +66,8 @@ message.messenger_name        # => String. As specified when registering your SP
 message.messenger_model       # => String. E.g., "SPOT3"
 ```
 
-You can also call `#to_h` on a message to get its attributes as a hash.
+You can also call `#to_h` on a message to get its (cleaned) attributes as a
+hash, or `#to_raw_h` to get the attributes as returned by SPOT.
 
 ### Pagination
 

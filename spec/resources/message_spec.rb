@@ -65,6 +65,11 @@ describe SPOT::Resources::Message do
       it { is_expected.to eq(expected_hash) }
     end
 
+    describe '#to_aw_h' do
+      subject { described_class.new(data, nil).to_raw_h }
+      it { is_expected.to eq(data) }
+    end
+
     describe '#response' do
       subject { described_class.new(data, "response").response }
       it { is_expected.to eq("response") }
