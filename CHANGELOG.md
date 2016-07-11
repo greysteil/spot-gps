@@ -1,3 +1,9 @@
+## v0.2.0, Unreleased
+
+- `#to_h` now returns a resources cleaned attributes, not its initial input
+- Add `#to_raw_h` method to SPOT::Resources::Message, which replaces `#to_h`
+- Make `#response` available on ListResponse, and document it
+
 ## v0.1.0, 10 July 2016
 
 - Move old `all` functionality to `list`
