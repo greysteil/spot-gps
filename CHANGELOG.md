@@ -1,4 +1,4 @@
-## v0.2.0, Unreleased
+## v0.2.0, 11 July 2016
 
 - `#to_h` now returns a resources cleaned attributes, not its initial input
 - Add `#to_raw_h` method to SPOT::Resources::Message, which replaces `#to_h`
