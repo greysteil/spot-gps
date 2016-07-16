@@ -1,4 +1,4 @@
-## v0.2.1 (Unreleased)
+## v0.2.1, 16 July 2016
 
 - Add support for Ruby 2.2 and 2.1.
 
