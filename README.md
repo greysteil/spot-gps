@@ -13,6 +13,12 @@ Add this line to your application's Gemfile:
 gem 'spot-gps'
 ```
 
+You'll then need to require SPOT before using it:
+
+```ruby
+require 'spot'
+```
+
 ## Configuration
 
 Timeout options can be configured globally, or you can rely on the default
