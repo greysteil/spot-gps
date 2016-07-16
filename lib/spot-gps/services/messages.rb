@@ -35,7 +35,10 @@ module SPOT
       private
 
       def unenvelope_body(body)
-        body.dig("response", "feedMessageResponse", "messages", "message")
+        response = body["response"] || {}
+        feed_message_response = response["feedMessageResponse"] || {}
+        messages = feed_message_response["messages"] || {}
+        message = messages["message"]
       end
 
       def spot_formatted_time(time)

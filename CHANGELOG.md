@@ -1,3 +1,7 @@
+## v0.2.1 (Unreleased)
+
+- Add support for Ruby 2.2 and 2.1.
+
 ## v0.2.0, 11 July 2016
 
 - `#to_h` now returns a resources cleaned attributes, not its initial input
