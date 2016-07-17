@@ -29,6 +29,17 @@ describe SPOT::ApiService do
           to have_requested(:get, 'https://example.com/EXAMPLE_ID/messages.json').
           with(query: { feedPassword: 'password' })
       end
+
+      context 'that is blank' do
+        let(:password) { '' }
+
+        it 'is expected to not include the password in the querystring' do
+          service.get(path: 'messages.json')
+          expect(WebMock).
+            to have_requested(:get, 'https://example.com/EXAMPLE_ID/messages.json').
+            with(query: {})
+        end
+      end
     end
   end
 

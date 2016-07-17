@@ -20,7 +20,10 @@ module SPOT
     # Make a GET request to the SPOT API
     def get(path:, params: {})
       params ||= {}
-      params = params.merge(feedPassword: feed_password) if feed_password
+
+      if feed_password && !feed_password.empty?
+        params = params.merge(feedPassword: feed_password)
+      end
 
       response = make_request(:get, path, params)
 
