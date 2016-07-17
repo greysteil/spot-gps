@@ -29,7 +29,10 @@ module SPOT
 
       def latest
         response = get(path: "latest.json")
-        Resources::Message.new(unenvelope_body(response.body), response)
+        unenveloped_body = unenvelope_body(response.body)
+
+        return nil if unenveloped_body.nil?
+        Resources::Message.new(unenveloped_body, response)
       end
 
       private

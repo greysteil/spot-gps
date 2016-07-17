@@ -217,5 +217,17 @@ describe SPOT::Services::Messages do
 
     it { is_expected.to be_a(SPOT::Resources::Message) }
     its(:response) { is_expected.to be_a(SPOT::ApiResponse) }
+
+    context "with no records" do
+      before do
+        stub_url = SPOT.endpoint + 'EXAMPLE_ID/latest.json'
+        stub_request(:get, stub_url).to_return(
+          body: load_fixture('no_messages.json'),
+          headers: { 'Content-Type' => 'application/json' }
+        )
+      end
+
+      it { is_expected.to be_nil }
+    end
   end
 end
