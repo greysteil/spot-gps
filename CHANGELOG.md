@@ -1,4 +1,4 @@
-## v0.2.2 (Unreleased)
+## v0.2.2, 17 July 2016
 
 - Don't include password in querystring when it's blank
 - Handle "no-messages" response when asking for latest message
