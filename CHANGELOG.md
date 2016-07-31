@@ -1,3 +1,7 @@
+## v0.2.3, 31 July 2016
+
+- Handle missing `messageContent` field (not present on TRACK messages)
+
 ## v0.2.2, 17 July 2016
 
 - Don't include password in querystring when it's blank
