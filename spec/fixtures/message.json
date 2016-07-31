@@ -37,15 +37,14 @@
                         "messengerId": "0-1234567",
                         "messengerName": "My SPOT",
                         "unixTime": 1468149143,
-                        "messageType": "OK",
+                        "messageType": "TRACK",
                         "latitude": 61.54875,
                         "longitude": -3.0697,
                         "modelId": "SPOT3",
                         "showCustomMsg": "Y",
                         "dateTime": "2016-07-10T11:12:23+0000",
                         "batteryState": "GOOD",
-                        "hidden": 0,
-                        "messageContent": "This is the default SPOT Check In/OK message. Please update."
+                        "hidden": 0
                     }
                 ]
             }

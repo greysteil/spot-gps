@@ -25,7 +25,7 @@ module SPOT
         @battery_state = object.fetch('batteryState')
         @hidden = object.fetch('hidden') == 1
         @show_custom_message = object.fetch('showCustomMsg') == "Y"
-        @content = object.fetch('messageContent')
+        @content = object.fetch('messageContent', nil)
         @messenger_id = object.fetch('messengerId')
         @messenger_name = object.fetch('messengerName')
         @messenger_model = object.fetch('modelId')
