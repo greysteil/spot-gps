@@ -15,9 +15,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.metadata = {
-    'home' => 'https://github.com/greysteil/spot-gps',
-    'code' => 'https://github.com/greysteil/spot-gps',
-    'bugs' => 'https://github.com/greysteil/spot-gps/issues'
+    'homepage_uri' => 'https://github.com/greysteil/spot-gps',
+    'source_code_uri' => 'https://github.com/greysteil/spot-gps',
+    'bug_tracker_uri' => 'https://github.com/greysteil/spot-gps/issues',
+    'changelog_uri' => 'https://github.com/greysteil/spot-gps/blob/master/CHANGELOG.md'
   }
 
   spec.add_development_dependency 'webmock', '~> 1.22'
