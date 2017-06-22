@@ -1,3 +1,7 @@
+## v0.2.4, 22 June 2016
+
+- Clean up gemspec
+
 ## v0.2.3, 31 July 2016
 
 - Handle missing `messageContent` field (not present on TRACK messages)
