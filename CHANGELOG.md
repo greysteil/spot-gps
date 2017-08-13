@@ -1,8 +1,8 @@
-## v0.2.5, 22 June 2016
+## v0.2.5, 22 June 2017
 
 - Update gemspec metadata links
 
-## v0.2.4, 22 June 2016
+## v0.2.4, 22 June 2017
 
 - Clean up gemspec
 
