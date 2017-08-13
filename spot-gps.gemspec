@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
     'changelog_uri' => 'https://github.com/greysteil/spot-gps/blob/master/CHANGELOG.md'
   }
 
-  spec.add_development_dependency 'webmock', '~> 1.22'
+  spec.add_development_dependency 'webmock', ">= 1.22", "< 4.0"
   spec.add_development_dependency 'rspec', '~> 3.5'
   spec.add_development_dependency 'rspec-its', '~> 1.0'
 
