@@ -1,3 +1,7 @@
+## v0.2.6, 15 August 2017
+
+- Support faraday 0.13.0
+
 ## v0.2.5, 22 June 2017
 
 - Update gemspec metadata links
