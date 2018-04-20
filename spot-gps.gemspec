@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.5'
   spec.add_development_dependency 'rspec-its', '~> 1.0'
 
-  spec.add_dependency 'faraday', ">= 0.8.9", "< 0.15"
+  spec.add_dependency 'faraday', ">= 0.8.9", "< 0.16"
 end
