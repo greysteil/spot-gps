@@ -1,3 +1,7 @@
+## v0.2.7, 20 April 2018
+
+- Support faraday 0.15.0
+
 ## v0.2.6, 15 August 2017
 
 - Support faraday 0.13.0
