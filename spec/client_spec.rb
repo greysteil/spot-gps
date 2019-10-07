@@ -11,7 +11,11 @@ describe SPOT::Client do
 
     context 'when initialised without a feed ID' do
       let(:feed_id) { nil }
-      it { is_expected.to raise_error('feed_id is required') }
+
+      it 'raises a helpful error' do
+        expect { described_class.new(options) }.
+          to raise_error('feed_id is required')
+      end
     end
 
     context 'when initialised without a password' do
