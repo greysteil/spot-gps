@@ -1,16 +1,9 @@
 language: ruby
 
-matrix:
-  allow_failures:
-    - rvm: jruby
-    - rvm: rbx-2
-
 rvm:
-  - '2.3.1'
-  - '2.2'
-  - '2.1'
-  - jruby
-  - rbx-2
+  - '2.6'
+  - '2.5'
+  - '2.4'
 
 script:
   - bundle exec rspec spec
