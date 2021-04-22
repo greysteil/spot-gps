@@ -1,21 +1,7 @@
 version: 2
-registries:
-  git-bitbucket-org:
-    type: git
-    url: https://bitbucket.org
-    username: greysteil
-    password: "${{secrets.GIT_BITBUCKET_ORG_PASSWORD}}"
-  rubygems-server-gem-fury-io:
-    type: rubygems-server
-    url: https://gem.fury.io
-    token: "${{secrets.RUBYGEMS_SERVER_GEM_FURY_IO_TOKEN}}"
 updates:
 - package-ecosystem: bundler
   directory: "/"
   schedule:
     interval: daily
-    timezone: Europe/London
   open-pull-requests-limit: 10
-  registries:
-  - rubygems-server-gem-fury-io
-  - git-bitbucket-org
