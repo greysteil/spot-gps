@@ -14,7 +14,10 @@ module SPOT
         }
       }
 
-      @connection = Faraday.new(base_uri, connection_options)
+      @connection =
+        Faraday.new(base_uri, connection_options) do |f|
+          f.adapter Faraday::Adapter::NetHttp
+        end
     end
 
     # Make a GET request to the SPOT API
