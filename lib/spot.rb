@@ -1,5 +1,5 @@
 require 'json'
-require 'faraday'
+require 'faraday/net_http'
 
 require 'spot-gps/version'
 require 'spot-gps/configuration'
