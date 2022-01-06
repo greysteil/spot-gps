@@ -1,3 +1,7 @@
+## v0.3.1, 6 January 2022
+
+- Handle change in Faraday requirement in Faraday Net::HTTP adapter
+
 ## v0.3.0, 4 January 2022
 
 - Support faraday 2.x
