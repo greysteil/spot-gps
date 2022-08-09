@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-its', '~> 1.0'
 
   spec.add_dependency 'faraday', ">= 2.0.0", "< 3.0.0"
-  spec.add_dependency 'faraday-net_http', ">= 2.0.0", "< 3.0.0"
+  spec.add_dependency 'faraday-net_http', ">= 2.0.0", "< 4.0.0"
 end
