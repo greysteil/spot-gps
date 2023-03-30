@@ -1,19 +1,19 @@
 require 'spec_helper'
 
 describe SPOT::Client do
-  subject(:api) { described_class.new(options) }
+  subject(:api) { described_class.new(**options) }
   let(:options) { { feed_id: feed_id, feed_password: password } }
   let(:feed_id) { "EXAMPLE_ID" }
   let(:password) { nil }
 
   describe ".new" do
-    subject { -> { described_class.new(options) } }
+    subject { -> { described_class.new(**options) } }
 
     context 'when initialised without a feed ID' do
       let(:feed_id) { nil }
 
       it 'raises a helpful error' do
-        expect { described_class.new(options) }.
+        expect { described_class.new(**options) }.
           to raise_error('feed_id is required')
       end
     end

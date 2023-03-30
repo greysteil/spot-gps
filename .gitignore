@@ -1,3 +1,4 @@
 .bundle
+.ruby-version
 Gemfile.lock
 *.gem

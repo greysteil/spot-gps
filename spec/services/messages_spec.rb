@@ -4,7 +4,7 @@ describe SPOT::Services::Messages do
   let(:messages) { SPOT::Client.new(feed_id: 'EXAMPLE_ID').messages }
 
   describe "#all" do
-    subject(:all) { messages.all(args) }
+    subject(:all) { messages.all(**args) }
     let(:args) { {} }
 
     it { is_expected.to be_a(Enumerator) }
@@ -53,7 +53,7 @@ describe SPOT::Services::Messages do
   end
 
   describe "#list" do
-    subject(:list) { messages.list(args) }
+    subject(:list) { messages.list(**args) }
 
     before do
       stub_url = SPOT.endpoint + 'EXAMPLE_ID/message.json'
