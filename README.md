@@ -3,7 +3,7 @@
 An API client library for SPOT's [API](http://faq.findmespot.com/index.php?action=showEntry&data=69).
 
 [![Gem Version](https://badge.fury.io/rb/spot-gps.svg)](http://badge.fury.io/rb/spot-gps)
-[![Build Status](https://travis-ci.org/greysteil/spot-gps.svg?branch=master)](https://travis-ci.org/greysteil/spot-gps)
+[![Build Status](../../actions/workflows/test.yml/badge.svg)](../../actions/workflows/test.yml)
 
 ## Installation
 
